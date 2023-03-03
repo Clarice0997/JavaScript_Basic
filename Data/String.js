@@ -216,6 +216,7 @@ function strSearch() {
 
   console.log(string.search('love')) // 2
   console.log(string.search(/javascript/gi)) // 7 gi (全文查找，忽略大小写)
+  console.log(string.search('zoo')) // -1
 }
 
 // 19. match()
