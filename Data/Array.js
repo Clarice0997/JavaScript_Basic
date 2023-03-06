@@ -257,6 +257,149 @@ console.log(obj.next().value) // [ 2, 'Apple' ]
 console.log(obj.next().value) // [ 3, 'Mango' ]
 
 // 21. every() 检测数组所有元素是否都符合指定条件（通过函数提供）
+// array.every(function(currentValue,index,arr), thisValue)
+// every() 方法使用指定函数检测数组中的所有元素
+// A. 如果数组中检测到有一个元素不满足，则整个表达式返回 false ，且剩余的元素不会再进行检测
+// B. 如果所有元素都满足条件，则返回 true
+// tips: 1. every() 不会对空数组进行检测 2.  every() 不会改变原始数组
+const age = [18, 20, 16, 21]
+console.log(
+  age.every((item, index, arr) => {
+    console.log(item)
+    console.log(index)
+    console.log(arr)
+    return item >= 18 ? true : false
+  })
+) // false
+
+// 22. filter() 创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素
+// array.filter(function(currentValue,index,arr), thisValue)
+// tips: 1. every() 不会对空数组进行检测 2.  every() 不会改变原始数组
+const age = [18, 20, 16, 21]
+console.log(
+  age.filter((item, index, arr) => {
+    console.log(item)
+    console.log(index)
+    console.log(arr)
+    return item >= 18 ? true : false
+  })
+) // [ 18, 20, 21 ]
+
+// 23. find() 返回通过测试（函数内判断）的数组的第一个元素的值
+// array.find(function(currentValue, index, arr),thisValue)
+// find() 方法为数组中的每个元素都调用一次函数执行
+// A. 当数组中的元素在测试条件时返回 true 时, find() 返回符合条件的元素，之后的值不会再调用执行函数
+// B. 如果没有符合条件的元素返回 undefined
+// tips: 1. every() 不会对空数组进行检测 2.  every() 不会改变原始数组
+const age = [18, 20, 16, 21]
+console.log(
+  age.find((item, index, arr) => {
+    console.log(item)
+    console.log(index)
+    console.log(arr)
+    return item === 16 ? true : false
+  })
+) // 18
+
+// 24. findIndex() 返回传入一个测试条件（函数）符合条件的数组第一个元素位置
+// array.findIndex(function(currentValue, index, arr), thisValue)
+// findIndex() 方法为数组中的每个元素都调用一次函数执行
+// A. 当数组中的元素在测试条件时返回 true 时, findIndex() 返回符合条件的元素的索引位置，之后的值不会再调用执行函数
+// B. 如果没有符合条件的元素返回 -1
+// tips: 1. every() 不会对空数组进行检测 2.  every() 不会改变原始数组
+const age = [18, 20, 16, 21]
+console.log(
+  age.findIndex((item, index, arr) => {
+    console.log(item)
+    console.log(index)
+    console.log(arr)
+    return item === 16 ? true : false
+  })
+) // 2
+console.log(age[2]) // 16
+
+// 25. forEach() 用于调用数组的每个元素，并将元素传递给回调函数
+// array.forEach(callbackFn(currentValue, index, arr), thisValue)
+// tip: forEach() 对于空数组是不会执行回调函数的
+// forEach() 本身是不支持的 continue 与 break 语句
+// 使用 return/some 代替 continue
+// 使用 every 代替 break
+
+// 箭头函数
+forEach(element => {
+  /* … */
+})
+forEach((element, index) => {
+  /* … */
+})
+forEach((element, index, array) => {
+  /* … */
+})
+
+// 回调函数
+forEach(callbackFn)
+forEach(callbackFn, thisArg)
+
+// 内联回调函数
+forEach(function (element) {
+  /* … */
+})
+forEach(function (element, index) {
+  /* … */
+})
+forEach(function (element, index, array) {
+  /* … */
+})
+forEach(function (element, index, array) {
+  /* … */
+}, thisArg)
+
+// 26. keys() 用于从数组创建一个包含数组键的可迭代对象
+// array.keys()
+const fruits = ['Banana', 'Orange', 'Apple', 'Mango']
+let obj = fruits.keys()
+console.log(obj.next().value) // 0
+console.log(obj.next().value) // 1
+console.log(obj.next().value) // 2
+console.log(obj.next().value) // 3
+
+// 27. reduce() 接收一个函数作为累加器，数组中的每个值（从左到右）开始缩减，最终计算为一个值
+// 28. reduceRight() 同 Reduce() 不同的是 reduceRight() 从数组的末尾向前将数组中的数组项做累加
+// array.reduce(function(total, currentValue, currentIndex, arr), initialValue)
+// tip: reduce() 对于空数组是不会执行回调函数的
+const age = [18, 20, 16, 21]
+console.log(
+  age.reduce((total, item) => {
+    return total + item
+  }, 0)
+)
+
+// 29. some() 用于检测数组中的元素是否满足指定条件
+// array.some(function(currentValue,index,arr),thisValue)
+// some() 方法会依次执行数组的每个元素
+// A. 如果有一个元素满足条件，则表达式返回true , 剩余的元素不会再执行检测
+// B. 如果没有满足条件的元素，则返回false
+// tips: 1. every() 不会对空数组进行检测 2.  every() 不会改变原始数组
+const age = [20, 18, 16, 21]
+console.log(
+  age.some(item => {
+    return item === 20
+  })
+) // true
+
+// 30. map() 返回一个新数组，数组中的元素为原始数组元素调用函数处理后的值
+// array.map(function(currentValue,index,arr), thisValue)
+// tips: 1. every() 不会对空数组进行检测 2.  every() 不会改变原始数组
+const age = [20, 18, 16, 21]
+console.log(
+  age.map(item => {
+    return item * 2
+  })
+) // [ 40, 36, 32, 42 ]
+
+// 31. valueOf() 返回 Array 对象的原始值
+const age = [20, 18, 16, 21]
+console.log(age.valueOf()) // [ 20, 18, 16, 21 ]
 
 // Array of arrays 矩阵
 // 数组可以存储不同的数据类型，包括数组本身
