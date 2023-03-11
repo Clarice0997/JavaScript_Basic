@@ -67,6 +67,11 @@ function numberToPrecision() {
   console.log(num.toPrecision(10)) // 13.37140000
 }
 
+// 9. toString 传入参数 可用于转换进制
+num = 60
+const hex = num.toString(16)
+console.log(hex) // 3c
+
 // Math 对象
 // 1. Π 返回圆周率
 const PI = Math.PI
