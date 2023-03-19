@@ -1,4 +1,11 @@
 // Object 对象
+
+// 变量定义Key值
+let key = 'English'
+obj = { [key]: 'England' }
+obj['China'] = 'Chinese'
+console.log(obj) // { English: 'England', China: 'Chinese' }
+
 // 方法
 /**
  * 1. Object.assign() To copy an object without modifying the original object
