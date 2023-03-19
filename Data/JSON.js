@@ -139,7 +139,7 @@ const user = {
 
 txt = JSON.stringify(user, ['firstName', 'lastName', 'country', 'city', 'age'], 2)
 console.log(txt)
-电脑
+
 // {
 //     "firstName": "Asabeneh",
 //     "lastName": "Yetayeh",
