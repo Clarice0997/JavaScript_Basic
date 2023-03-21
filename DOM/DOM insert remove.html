@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM insert & remove</title>
+</head>
+
+<body>
+  <ul>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+
+
+  <script>
+    // 1. Creating an Element (document.createElement())
+    let div = document.createElement('div')
+    document.body.appendChild(div)
+    // 2. Create a TextNode(document.createTextNode(text))
+    let text = document.createTextNode('Hello!')
+    document.querySelector('div').appendChild(text)
+    // 3. Appending child to a parent element (appendChild())
+    let h1 = document.createElement('h1')
+    h1.innerText = 'Hello'
+    document.body.appendChild(h1)
+    // 4. Insert before to a parent element (element.insertBefore(newNode, referenceNode))
+    let li = document.createElement('li')
+    li.textContent = 'append'
+    document.querySelector('ul').insertBefore(li, document.querySelectorAll('li')[1])
+    // 5. Removing a child element from a parent node(removeChild())
+    let lis = document.querySelectorAll('li')
+    document.querySelector('ul').removeChild(lis[3])
+    // 6. Remove Element (DOM.remove())
+    lis[4].remove()
+  </script>
+</body>
+
+</html>

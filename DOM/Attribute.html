@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attribute</title>
+</head>
+
+<body>
+  <h1 class='title' id='first-title'>First Title</h1>
+  <h1 class='title' id='second-title'>Second Title</h1>
+  <h1 class='title' id='third-title'>Third Title</h1>
+  <h1></h1>
+
+  <script>
+    // 1. Get attribute using getAttribute(element.getAttribute(name))
+    console.log(document.querySelector('#first-title').getAttribute('id'));
+    // 2. Adding attribute using setAttribute (setAttribute())
+    const titles = document.querySelectorAll('h1')
+    titles[3].setAttribute('class', 'title')
+    titles[3].setAttribute('id', 'fourth-title')
+    // 3. Adding attribute without setAttribute (DOM.key = value)
+    titles[3].className = 'title'
+    titles[3].id = 'fourth-title'
+    // 4. Adding class using classList (DOM.classList.add(name,value))
+    titles[3].classList.add('title', 'header-title')
+    // 5. Removing class using remove (DOM.classList.remove(name,value))
+    titles[3].classList.remove('header-title')
+    // 6. Check if element has className(element.classList.contains(className))
+    console.log(titles[3].classList.contains('header-title'));
+    console.log(titles[3].classList.contains('title'));
+    // 7. Remove attribute using removeAttribute (element.removeAttribute(name))
+    titles[3].removeAttribute('id')
+  </script>
+</body>
+
+</html>

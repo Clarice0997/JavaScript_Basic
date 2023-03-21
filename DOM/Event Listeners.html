@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>Click Me</button><br>
+  <button onclick="clickMe()">Click Me</button><br>
+  <button id="dbclick">Double Click Me</button><br>
+  <button id="mouseenter">Click Me</button><br>
+  <input type="text" id="value"><br>
+
+  <input type="text" placeholder="say something" id="input" /><br>
+  <p></p>
+
+  <input type="text" id="blur" placeholder="say something" /><br>
+  <p class="error"></p>
+
+  <script>
+    // 1. Click (addEventListener('click',callback) & onclick)
+    const button = document.querySelector('button')
+    button.addEventListener('click', e => {
+      console.log('e gives the event listener object:', e)
+      console.log('e.target gives the selected element: ', e.target)
+      console.log(
+        'e.target.textContent gives content of selected element: ',
+        e.target.textContent
+      )
+    })
+    // inline script
+    function clickMe() {
+      console.log(this);
+    }
+
+    // 2. Double Click (addEventListener('dblclick',callback))
+    document.getElementById('dbclick').addEventListener('dblclick', (e) => {
+      console.log('e gives the event listener object:', e)
+      console.log('e.target gives the selected element: ', e.target)
+      console.log(
+        'e.target.textContent gives content of selected element: ',
+        e.target.textContent
+      )
+    })
+
+    // 3. Mouse enter (addEventListener('mouseenter',callback))
+    document.getElementById('mouseenter').addEventListener('mouseenter', (e) => {
+      console.log('e gives the event listener object:', e)
+      console.log('e.target gives the selected element: ', e.target)
+      console.log(
+        'e.target.textContent gives content of selected element: ',
+        e.target.textContent
+      )
+    })
+
+    // 4. input value (DOM.value)
+    document.querySelector('#value').addEventListener('change', (e) => {
+      console.log(this.value.value);
+    })
+
+    // 5. input event and change (e.target.value)
+    const input = document.querySelector('#input')
+    const p = document.querySelector('p')
+
+    input.addEventListener('input', e => {
+      p.textContent = e.target.value
+    })
+
+    // 6. blur event
+    const blur = document.querySelector('#blur')
+    const pe = document.querySelector('.error')
+
+    blur.addEventListener('blur', (e) => {
+      pe.textContent = 'Field is required'
+      pe.style.color = 'red'
+    })
+
+    // 7. keypress
+    document.body.addEventListener('keypress', (e) => {
+      console.log(e.keyCode)
+    })
+  </script>
+</body>
+
+</html>

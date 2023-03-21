@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1 class='title' id='first-title'>First Title</h1>
+  <h1 class='title' id='second-title'>Second Title</h1>
+  <h1 class='title' id='third-title'>Third Title</h1>
+  <h1></h1>
+  <div></div>
+
+  <script>
+    // 1. Adding Style Color (DOM.style.propertyName)
+    // 2. Adding Style Background Color (DOM.style.backgroundColor)
+    // 3. Adding Style Font Size (DOM.style.fontSize)
+    const titles = document.querySelectorAll('h1')
+    titles.forEach((title, i) => {
+      title.style.fontSize = '24px' // all titles will have 24px font size
+      if (i % 2 === 0) {
+        title.style.backgroundColor = 'green'
+      } else {
+        title.style.backgroundColor = 'red'
+      }
+    })
+  </script>
+</body>
+
+</html>

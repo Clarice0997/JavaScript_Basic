@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Getting Element</title>
+</head>
+
+<body>
+
+  <h1 class='title' id='first-title'>First Title</h1>
+  <h1 class='title' id='second-title'>Second Title</h1>
+  <h1 class='title' id='third-title'>Third Title</h1>
+  <h1></h1>
+
+  <script>
+    // 1. Getting elements by tag name (getElementsByTagName())
+    console.log(document.getElementsByTagName('h1'));
+    // 2. Getting elements by class name (getElementsByClassName())
+    console.log(document.getElementsByClassName('title'));
+    // 3. Getting elements by Id (getElementById())
+    console.log(document.getElementById('first-title'));
+    // 4. Getting elements by using querySelector methods (querySelector() & querySelectorAll())
+    console.log(document.querySelector('#third-title'));
+    console.log(document.querySelectorAll('h1'));
+  </script>
+</body>
+
+</html>
