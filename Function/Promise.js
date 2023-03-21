@@ -39,3 +39,34 @@ doPromise
     console.log(result)
   })
   .catch(error => console.error(error))
+
+// Array full of Promise
+const arr = []
+
+// Function return Promise
+for (let index = 0; index < 5; index++) {
+  arr.push(
+    (() => {
+      return new Promise((resolve, reject) => {
+        resolve(index)
+      })
+    })()
+  )
+}
+
+// Promise
+for (let index = 0; index < 5; index++) {
+  arr.push(
+    new Promise((resolve, reject) => {
+      setTimeout(() => {
+        resolve(index)
+      }, index * 500)
+    })
+  )
+}
+
+while (arr.length > 0) {
+  arr.shift().then(res => {
+    console.log(res)
+  })
+}

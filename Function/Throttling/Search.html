@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>输入框搜索</title>
+</head>
+
+<body>
+  <input type="text" id="search-input">
+  <script>
+    const inputEl = document.getElementById('search-input')
+    let timeoutId = null
+
+    const search = () => {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(() => {
+        console.log('searching...')
+        // 模拟发送网络请求
+      }, 500)
+    }
+
+    inputEl.addEventListener('input', search)
+  </script>
+</body>
+
+</html>
