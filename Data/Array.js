@@ -419,3 +419,34 @@ console.log(fullStack) // [["HTML", "CSS", "JS", "React", "Redux"], ["Node", "Ex
 console.log(fullStack.length) // 2
 console.log(fullStack[0]) // ["HTML", "CSS", "JS", "React", "Redux"]
 console.log(fullStack[1]) // ["Node", "Express", "MongoDB"]
+
+// 32. flat() 创建一个新的数组，并根据指定深度递归地将所有子数组元素拼接到新的数组中
+// array.flat(dept)
+// dept 嵌套数组的结构深度 默认值1
+// tips: 1. flat返回的数组是浅拷贝 2.如果展开的数组是稀疏数组则会忽略空槽
+const arr1 = [1, 2, [3, 4]]
+arr1.flat()
+// [1, 2, 3, 4]
+
+const arr2 = [1, 2, [3, 4, [5, 6]]]
+arr2.flat()
+// [1, 2, 3, 4, [5, 6]]
+
+const arr3 = [1, 2, [3, 4, [5, 6]]]
+arr3.flat(2)
+// [1, 2, 3, 4, 5, 6]
+
+const arr4 = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]]
+arr4.flat(Infinity)
+// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+// 稀疏数组
+const arr5 = [1, 2, , 4, 5]
+console.log(arr5.flat()) // [1, 2, 4, 5]
+
+const array = [1, , 3, ['a', , 'c']]
+console.log(array.flat()) // [ 1, 3, "a", "c" ]
+
+const array2 = [1, , 3, ['a', , ['d', , 'e']]]
+console.log(array2.flat()) // [ 1, 3, "a", ["d", empty, "e"] ]
+console.log(array2.flat(2)) // [ 1, 3, "a", "d", "e"]
