@@ -208,3 +208,29 @@ number > 0 ? console.log(`${number} is a positive number`) : console.log(`${numb
 
 number = -5
 number > 0 ? console.log(`${number} is a positive number`) : console.log(`${number} is a negative number`)
+
+// 逻辑或赋值 ||=
+// ||=是一种赋值运算符，它主要用于变量的赋值。当变量的值为undefined或null时，||=可以将指定的值赋给该变量
+
+// Example 1:
+// 假设我们有一个名为myVar的变量，并且我们想要将其值设置为一个默认值，但是仅当myVar的值为undefined或null时才这样做。可以使用||=运算符来实现此目的
+myVar ||= '默认值'
+
+// Example 2:
+// 假设我们正在编写一个函数，该函数将从服务器获取数据并将其分配给一个变量。如果变量当前未定义，则我们将使用默认值
+function getData() {
+  var data = fetchDataFromServer()
+  data ||= '空数据'
+  return data
+}
+
+// Example 3:
+const a = { duration: 50, title: '' }
+
+a.duration ||= 10
+console.log(a.duration)
+// Expected output: 50
+
+a.title ||= 'title is empty.'
+console.log(a.title)
+// Expected output: "title is empty"
