@@ -234,3 +234,10 @@ console.log(a.duration)
 a.title ||= 'title is empty.'
 console.log(a.title)
 // Expected output: "title is empty"
+
+// ?? nullish coalescing运算符
+// 当变量为null或undefined时，提供一个默认值
+
+// Example
+const foo = null ?? 'default value' // foo的值将为"default value"
+const bar = 0 ?? 42 // bar的值将为0
