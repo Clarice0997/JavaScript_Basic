@@ -241,3 +241,26 @@ console.log(a.title)
 // Example
 const foo = null ?? 'default value' // foo的值将为"default value"
 const bar = 0 ?? 42 // bar的值将为0
+
+// ?. 可选链运算符
+// 用于简化访问对象属性时的空值检查，以避免出现TypeError
+// 当?.运算符前面的操作数为null或undefined时，表达式返回undefined，否则返回属性值
+
+// Example
+const person = {
+  name: 'Alice',
+  age: 30,
+  address: {
+    city: 'New York',
+    state: 'NY'
+  }
+}
+
+const city = person.address?.city
+console.log(city) // 输出 'New York'
+
+const zip = person.address?.zip
+console.log(zip) // 输出 undefined
+
+const job = person.job?.title
+console.log(job) // 输出 undefined
