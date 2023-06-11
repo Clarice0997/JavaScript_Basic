@@ -450,3 +450,36 @@ console.log(array.flat()) // [ 1, 3, "a", "c" ]
 const array2 = [1, , 3, ['a', , ['d', , 'e']]]
 console.log(array2.flat()) // [ 1, 3, "a", ["d", empty, "e"] ]
 console.log(array2.flat(2)) // [ 1, 3, "a", "d", "e"]
+
+// 32. Array.from 可以将类数组对象或可迭代对象转换为真正数组的方法
+
+// Array.from Syntax
+// 第一个参数 arrayLike 是需要转换为数组的对象；第二个参数 mapFn 是一个可选的映射函数，用于对数组中的每个元素进行处理；第三个参数 thisArg 是可选的参数，用于指定映射函数中 this 的值
+// Array.from(arrayLike[, mapFn[, thisArg]])
+
+// Example 1: 将字符串转换为数组
+const str = 'hello'
+const arr = Array.from(str)
+console.log(arr) // ["h", "e", "l", "l", "o"]
+
+// Example 2: 将类数组对象转换为数组
+function foo() {
+  const args = Array.from(arguments)
+  console.log(args) // [1, 2, 3]
+}
+
+foo(1, 2, 3)
+
+// Example 3: 将可迭代对象转换为数组
+const set = new Set([1, 2, 3])
+const arr = Array.from(set)
+console.log(arr) // [1, 2, 3]
+
+// Example 4: 对数组中的每个元素进行处理
+const arr = ['hello', 'world']
+
+const upperArr = Array.from(arr, function (item) {
+  return item.toUpperCase()
+})
+
+console.log(upperArr) // ["HELLO", "WORLD"]
